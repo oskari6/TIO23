@@ -1,104 +1,76 @@
-﻿using System;
++using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Linq.Expressions;
+using System.Net.Mail;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Syöte
 {
-    class arrays
+    internal class Program
     {
+        enum Months
+        {
+            Spring = 1,
+            Summer,
+            Autumn,
+            Winter
+        }
         static void Main(string[] args)
         {
-            /*int[] grades = new int[10];
-            grades[0] = 900;
-            grades[1] = 1000;
+            /*Tehtävä 2.
+            Kirjoita ohjelma, jossa määrittelet kaksi kolmipaikkaista taulukkoa.
+            Alusta toinen tuotteiden nimillä ja toinen niiden hinnoilla.
+            Tulosta tämän jälkeen jokaisen tuotteen nimi ja hinta yhdessä omalle riville.
+            (Huom! ihan tavallisia 1 - ulotteisia taulukoita tarvitaan tässä)*/
 
-            int[] grades = { 900, 20, 12, 41 };
-            int size = Convert.ToInt32(Console.In.ReadLine());
-            int[] grades = new int[size];
+            string[] names = { "pöytä", "tuoli", "lamppu" };
+            int[] prices = { 10, 20, 15 };
 
-            for (int i = 0; i < grades.Length; i++)
-            {
-                grades[i] = Convert.ToInt32(Console.In.ReadLine());
-            }
+            Console.WriteLine(names[0] + " hinta, " + prices[0]);
+            Console.WriteLine(names[1] + " hinta, " + prices[1]);
+            Console.WriteLine(names[2] + " hinta, " + prices[2]);
 
-            for (int i = 0; i < grades.Length; i++)
-            {
-                Console.Write(grades[i] + " ");
-                Console.ReadLine();
-            }
-            Console.WriteLine(grades[4]);
-            Console.ReadLine();*/
+            /*Tehtävä 3.
+            Tee ohjelma joka kysyy käyttäjältä viisi nimeä ja tallentaa ne string tyyppiseen taulukkoon.
+            Lopuksi tulosta nimet taulukosta. (ei tarvitse tehdä toistorakenteella, peräkkäiset ReadLine-, WriteLine - komennot ratkaisuna ok)*/
 
-            int[] grades = { 30, 430, 23, 10 };
-            int[] grades2 = {30, 430 ,23, 10 };
-            int[,] grades2d = new int[3, 4]/*{{5,4,7,3},{7,3,2,6},{5,3,7,3}}*/;
-            grades2d[0, 2] = 5;
+            Console.Write("Anna 5 nimeä erotettuna välilyönnillä: ");
+            string input = Console.ReadLine();
+            string[] names = input.Split(' ');
+            string nameOne = names[0];
+            string nameTwo = names[1];
+            string nameThree = names[2];
+            string nameFour = names[3];
+            string nameFive = names[4];
 
-            int[][] jagged = {
-                new int[]{5,4,7,3},
-                new int[]{7,3,2,6,7,4,2,4},
-                new int[]{5,3,7,3}
-            };
-            Console.WriteLine(jagged[1][6]);
-            Console.WriteLine(grades2d[0,2]);
-            Console.WriteLine(jagged.Length);
-            Console.WriteLine(jagged[0].Length);
-            Console.ReadLine();
+            Console.WriteLine(names);
 
-            Console.WriteLine(jagged.GetLength(0));
-            Console.WriteLine(jagged.GetLength(1));
+            Console.WriteLine("anna 2 kokonaislukua välilyönnillä erotettuna");
+            string input = Console.ReadLine();
+            string[] numbers = input.Split(' ');
+            int one = int.Parse(numbers[0]);
+            int two = int.Parse(numbers[1]);
 
-            for (int i = 0; i < jagged.Length; i++)
-            {
-                for (int k = 0; k < jagged[i].Length; k++)
-                {
-                    Console.Write(jagged[i][k] + " ");
-                    Console.Read();
-                }
-                Console.WriteLine();
-                Console.ReadLine();
-            }
+            int month = (int)Months.Autumn;
 
-            //2
-            for (int i = 0; i < jagged.GetLength(0); i++)
-            {
-                for (int k = 0; k < jagged.GetLength(0); k++)
-                {
-                    Console.Write(jagged[i][k] + " ");
-                    Console.Read();
-                }
-                Console.WriteLine();
-                Console.ReadLine();
-            }
+            Console.WriteLine("Syksyn arvo: " + month);
 
-            //Console.WriteLine(Array.IndexOf(grades,23));
-            //Console.ReadLine();
-            //Array.Sort(grades);
-            //Array.IndexOf(grades,23)
-            //Array.Reverse(grades);
-            //Enumerable.SequenceEqual(grades, grades2)) inside if statement, comparing
-            //above you are imparing if they are the same entity not value
-            //for value: in[] grades = grades2; inside if statement
-            bool found = false;
+            Console.WriteLine(args.Length);
 
-            for(int i = 0; i < grades.Length; i++)
-            {
-                if (grades[i] == 40)
-                {
-                    Console.WriteLine("we found it");
-                    Console.ReadLine();
-                    found = true;
-                    break;
-                }
-                if(!found)
-                {
-                    Console.WriteLine("not found");
-                    Console.ReadLine();
-                }
-            }
+            double[] myArray = { double.Parse(args[0]), double.Parse(args[1]) };
+
+            double sum = myArray[0] + myArray[1];
+            double substract = myArray[0] - myArray[1];
+            double multiply = myArray[0] * myArray[1];
+
+            Console.WriteLine($"{myArray[0]} + {myArray[1]} = {sum}");
+            Console.WriteLine($"{myArray[0]} - {myArray[1]} = {substract}");
+            Console.WriteLine($"{myArray[0]} * {myArray[1]} = {multiply}");
+
+            Console.WriteLine(args.Length);
         }
     }
 }
