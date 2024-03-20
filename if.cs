@@ -64,7 +64,25 @@ namespace Syöte
                     }
                 }
             }
+            /*Kirjoita ohjelma, joka laskee kuinka monta vokaalia annetussa merkkijonossa/stringissä on."*/
 
+            Console.Write("Anna pokemonin nimi: ");
+            string pokemon = Console.ReadLine()?? "0".ToLower();
+
+            int count = 0;
+
+            for (int i = 0; i < pokemon.Length; i++)
+            {
+                
+                string vowels = pokemon[i].ToString();
+                if ("aeiouy".Contains(vowels))
+                {
+                    Console.Write(pokemon[i]);
+                    count++;
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Vokaalit: " + count);
         }
     }
 }

@@ -190,6 +190,31 @@ namespace Syöte
                 }
                 break;
             }
+            
+            /*2. Kirjoita ohjelma, joka kysyy käyttäjältä neljän kokeen pistemäärät (0-100) ja laskee niiden keskiarvon.
+            Keskiarvon perusteella ohjelma antaa käyttäjälle arvosanan seuraavilla pisterajoilla:*/
+
+            Console.Write("Anna 4. kokeen pistemäärät erotettuna pilkulla: ");
+            string input = Console.ReadLine()?? "0";
+            string[] grades = input.Split(',');
+            double gradeOne = double.Parse(grades[0]);
+            double gradeTwo = double.Parse(grades[1]);
+            double gradeThree = double.Parse(grades[2]);
+            double gradeFour = double.Parse(grades[3]);
+
+            double mean = (gradeOne + gradeTwo + gradeThree + gradeFour) / 4;
+
+            string result = mean switch
+            {
+                < 39 and > 0 => $"keskiarvo {mean}: 0, hylätty",
+                < 49 and > 40 => $"keskiarvo {mean}: 1, tyydyttävä",
+                < 60 and > 50 => $"keskiarvo {mean}: 2, kohtalainen",
+                < 75 and > 61 => $"keskiarvo {mean}: 3, hyvä",
+                < 90 and > 76 => $"keskiarvo {mean}: 4, hyvä",
+                < 100 and > 91 => $"keskiarvo {mean}: 5, hylätty",
+                _ => "antamasi luvut eivät ole oikeita"
+            };
+            Console.WriteLine(result);
         }
     }
 }
