@@ -74,14 +74,14 @@ namespace Syöte
                     break;
             }
         
-        3. Tee ohjelma, joka lukee lämpötilan celsiusasteina ja tulostaa lämpötilan mukaan seuraavasti
+        /*3. Tee ohjelma, joka lukee lämpötilan celsiusasteina ja tulostaa lämpötilan mukaan seuraavasti
             < -20              superkylmää
             -20…<-10      tosi kylmää
             -10…<-0        kylmää
             +0…<+10       viileää
             +10…<+20     normaali
             +20…+30       lämmintä
-            >30                kuumaa
+            >30                kuumaa*/
             
         while (true)
             {
