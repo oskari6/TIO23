@@ -1,0 +1,48 @@
+# Compiled files
+bin/
+obj/
+
+# Local user-specific files
+*.user
+*.suo
+
+# Visual Studio files
+.vs/
+*.vscode/
+*.sln
+*.suo
+*.csproj.user
+*.vcxproj.filters
+
+# NuGet package folder
+packages/
+
+# Windows folder config files
+Thumbs.db
+Desktop.ini
+
+# Resharper files
+_ReSharper*/
+
+# Rider files
+.idea/
+
+# macOS folder attributes
+.DS_Store
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Log files
+*.log
+
+# Test Results
+TestResults/
+
+# Other temporary files
+*.tmp
+*.bak
+*~
